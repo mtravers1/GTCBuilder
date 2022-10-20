@@ -1,0 +1,52 @@
+{
+  "name": "realestate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@apollo/client": "",
+    "@emotion/cache": "",
+    "@emotion/react": "",
+    "@emotion/serialize": "",
+    "@emotion/server": "",
+    "@emotion/utils": "",
+    "@mantine/carousel": "^5.2.0",
+    "@mantine/core": "",
+    "@mantine/dates": "^5.2.3",
+    "@mantine/dropzone": "^5.2.3",
+    "@mantine/form": "",
+    "@mantine/hooks": "",
+    "@mantine/next": "",
+    "@mantine/notifications": "^5.2.5",
+    "@tabler/icons": "",
+    "dayjs": "^1.11.5",
+    "embla-carousel": "",
+    "embla-carousel-autoplay": "",
+    "embla-carousel-react": "^7.0.1",
+    "graphql": "",
+    "graphql-request": "",
+    "next": "",
+    "next-seo": "^5.5.0",
+    "next-themes": "",
+    "nextjs-progressbar": "^0.0.14",
+    "react": "",
+    "react-awesome-reveal": "^4.0.1",
+    "react-dom": "",
+    "react-fast-marquee": "",
+    "react-medium-image-zoom": "^5.0.1",
+    "zustand": "^4.1.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "autoprefixer": "^10.4.8",
+    "eslint": "",
+    "eslint-config-next": "",
+    "postcss": "^8.4.16",
+    "tailwindcss": "^3.1.8"
+  }
+}

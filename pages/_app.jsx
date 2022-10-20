@@ -1,0 +1,43 @@
+import Layout from '../components/layout'
+import '../styles/globals.css'
+import { MantineProvider } from '@mantine/core';
+import NextNProgress from "nextjs-progressbar";
+import { DefaultSeo } from 'next-seo';
+import SEO from '../next-seo.config';
+import { NotificationsProvider } from '@mantine/notifications';
+
+// The _app. js file is the default App component that Next. js uses to initialize pages
+
+function MyApp({ Component, pageProps }) {
+  return (
+    // Mantine provider is a provider global componets from mantine ui library
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colors: { emerald: ['#10b981'] },
+        fontFamily: 'Quicksand, sans-serif'
+      }}
+    >
+      <DefaultSeo {...SEO} />
+      {/* Mantine notification provider from mantine ui library */}
+      <NotificationsProvider>
+        {/* basic and primary layout of the website customize in /compoents/layout.jsx */}
+        <Layout>
+          {/* Top progress indicator when page load package */}
+          <NextNProgress
+            options={{ easing: "ease" }}
+            color="rgb(40 174 104 )"
+            startPosition={0.6}
+            stopDelayMs={200}
+            height={4}
+            showOnShallow={true}
+          />
+          <Component {...pageProps} />
+        </Layout>
+      </NotificationsProvider>
+    </MantineProvider>
+  )
+}
+
+export default MyApp
