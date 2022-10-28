@@ -1,0 +1,33 @@
+.link {
+  color: #fc5a5a;
+  font-size: 15px;
+  padding: 10px;
+  font-weight: 500;
+  border-bottom: 2px solid #e2e8f0;
+  position: relative;
+  z-index: 10;
+}
+
+.active {
+  color: #ff0000;
+  border-bottom: 3px solid #ff0000;
+}
+
+.linksWrapper {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.authDivider {
+  border: 1px solid #e2e8f0;
+  background-color: #e2e8f0;
+  position: absolute;
+  bottom: -9px;
+  z-index: 0;
+  width: 100%;
+  margin-top: 7px;
+}
+.wrapper {
+  position: relative;
+}
