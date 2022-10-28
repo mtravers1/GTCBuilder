@@ -9,7 +9,7 @@ export const AuthLinks = ({ active }) => {
     <div className={styles.wrapper}>
       <ul className={`${styles.linksWrapper}`}>
         {links.map((item, idx) => (
-          <li>
+          <li key={`${item.page}_${idx}`}>
             <Link href={item.link}>
               <a
                 className={`${styles.link} ${
