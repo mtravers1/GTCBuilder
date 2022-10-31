@@ -19,9 +19,9 @@ export default function CenterSection() {
                         <button className="cursor-pointer text-base font-bold">Categories</button>
                     </Menu.Target>
                     <Menu.Dropdown>
-                        <Menu.Label className="font-bold text-black"><Link href={routes.allProperties}>Apartments</Link></Menu.Label>
-                        <Menu.Label className="font-bold text-black"><Link href={routes.allProperties}>Houses</Link></Menu.Label>
-                        <Menu.Label className="font-bold text-black"><Link href={routes.allProperties}>Cottages</Link></Menu.Label>
+                        <Menu.Label className="font-bold text-black"><Link href={routes.apartments}>Apartments</Link></Menu.Label>
+                        <Menu.Label className="font-bold text-black"><Link href={routes.houses}>Houses</Link></Menu.Label>
+                        <Menu.Label className="font-bold text-black"><Link href={routes.condos}>Condos</Link></Menu.Label>
                     </Menu.Dropdown>
                 </Menu>
             </div>
@@ -34,7 +34,7 @@ export default function CenterSection() {
                     <Menu.Dropdown>
                         <Menu.Label className="font-bold text-black"><Link href={routes.allProperties}>Apartments</Link></Menu.Label>
                         <Menu.Label className="font-bold text-black"><Link href={routes.allProperties}>Houses</Link></Menu.Label>
-                        <Menu.Label className="font-bold text-black"><Link href={routes.allProperties}>Cottages</Link></Menu.Label>
+                        <Menu.Label className="font-bold text-black"><Link href={routes.allProperties}>Condos</Link></Menu.Label>
                     </Menu.Dropdown>
                 </Menu>
             </div>

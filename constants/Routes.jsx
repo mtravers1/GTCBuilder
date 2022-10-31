@@ -8,6 +8,9 @@ export const routes = {
     property: '/property/', // individual property view [id] means dynamic route , append id at the end
     addProperty: '/addproperty/', // add individual property page
     allProperties: '/addproperty/', // view all properties view
+    apartments: '/properties/apartments', // view all properties view
+    houses: '/properties/houses', // view all properties view
+    condos: '/properties/condos',
     
     // Auth pages route
     login: '/auth/login', // view all properties view
@@ -18,4 +21,7 @@ export const routes = {
 
     //About us page
     aboutUs: '/aboutus', // view user profile [id] means dynamic route , append id at the end
+
+ 
+
 }

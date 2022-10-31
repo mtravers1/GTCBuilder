@@ -3,7 +3,7 @@ import { Textarea,Input } from '@mantine/core';
 // litte description section of the add proprty stepper
 
 export default function DescriptionStep() {
-
+    const [description, setDescription]=useState('')
     return (
         <>
             <div className="flex flex-col space-y-4">
@@ -13,6 +13,8 @@ export default function DescriptionStep() {
                         placeholder="Propert description"
                         label="Description"
                         withAsterisk
+                        value={description}
+                        onChange={(e)=>setDescription(e.target.value)}
                     />
                 </div>
                 {/* Links */}

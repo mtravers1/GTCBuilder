@@ -1,21 +1,32 @@
 import { Input,Select } from '@mantine/core';
+import {useState} from 'react'
 
 // details section of the add proprty stepper
 
 export default function DetailsStep() {
+    const [title, setTitle]=useState('')
+    const [location, setLocation]=useState('')
+
+    const handleSubmit = (e)=>{
+        e.preventDefault;
+        const houseinfo={title, location}
+    }
+
     return (
+        
+    
         <>
             <div className="flex flex-col space-y-4">
                 {/* Title */}
                 <div>
                     <Input.Wrapper label="Title" required>
-                        <Input placeholder="ABC Property" />
+                        <Input placeholder="ABC Property" value={title} onChange={(e)=>setTitle(e.target.value)} />
                     </Input.Wrapper>
                 </div>
                 {/* Location */}
                 <div>
                     <Input.Wrapper label="Location" required>
-                        <Input placeholder="Gampaha, Sri Lanka" />
+                        <Input placeholder="Gampaha, Sri Lanka" value={location} onChange={(e)=>setLocation(e.target.value)}/>
                     </Input.Wrapper>
                 </div>
                 {/* Price */}
