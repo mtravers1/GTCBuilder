@@ -16,6 +16,7 @@ a {
 
 * {
   box-sizing: border-box;
+  transition-duration: 0.6s;
 }
 
 @media (prefers-color-scheme: dark) {

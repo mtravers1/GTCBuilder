@@ -1,9 +1,12 @@
 import styles from "./Index.module.css";
-export const Button = ({ title = "Caption", ...rest }) => {
+export const Button = ({ children, className, title = "Caption", ...rest }) => {
   return (
-    <div className={`${styles.buttonWrapper}`}>
-      <button className={`${styles.button}`} {...rest}>
-        {title}
+    <div className={`mt-[30px]`}>
+      <button
+        className={`px-[100px] py-5 bg-[#ff0000] text-white font-semibold rounded-lg ${className}`}
+        {...rest}
+      >
+        {children}
       </button>
     </div>
   );

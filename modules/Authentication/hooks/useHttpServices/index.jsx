@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useState } from "react";
+import axios from "axios";
 // import { useCookies } from "react-cookie";
 
 export const useHttpServices = () => {
@@ -33,9 +33,8 @@ export const useHttpServices = () => {
       console.log(error?.response?.data?.error?.message);
     }
   };
-  const getProtectedData = async (path) => {
+  const getProtectedData = async (path, token) => {
     try {
-      const token = cookies?.token;
       console.log(token);
       const { data } = await axios.get(`${baseURL}/${path}`, {
         headers: {

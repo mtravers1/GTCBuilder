@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AuthLinks } from "../AuthLinks";
 import { CaptionWrapper } from "../CaptionWrapper";
 import { useHttpServices } from "../hooks/useHttpServices";
+import { Loader } from "../../../components/Helpers";
 
 export const RegisterContent = ({ mainCaption = "", content = "" }) => {
   const [body, setBody] = useState({
@@ -11,16 +12,19 @@ export const RegisterContent = ({ mainCaption = "", content = "" }) => {
     lastName: "",
     email: "",
     phone: "",
-    // password: "",
+    password: "",
   });
   const { postData, isLoading } = useHttpServices();
   const register = async (e) => {
     e.preventDefault();
-    const data = await postData("/auth/admin/otpRegister", body);
-    console.log(data);
+    try {
+      const data = await postData("/auth/user/register", body);
+    } catch (error) {
+      console.log(data);
+    }
   };
   return (
-    <AuthWrapper containerStyle={{ minHeight: "70vh" }}>
+    <AuthWrapper>
       <CaptionWrapper mainCaption={mainCaption} content={content} />
       <div>
         <AuthLinks active="register" />
@@ -41,6 +45,7 @@ export const RegisterContent = ({ mainCaption = "", content = "" }) => {
         <Input
           placeholder="Email Adress"
           title="Email Adress"
+          type="email"
           value={body.email}
           onChange={(e) => setBody({ ...body, email: e.target.value })}
         />
@@ -51,14 +56,21 @@ export const RegisterContent = ({ mainCaption = "", content = "" }) => {
           value={body.phone}
           onChange={(e) => setBody({ ...body, phone: e.target.value })}
         />
-        {/* <Input
+        <Input
           placeholder="Password"
           title="Password"
           type="password"
           value={body.password}
           onChange={(e) => setBody({ ...body, password: e.target.value })}
-        /> */}
-        <Button title="Register" type="submit" />
+        />
+
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className={isLoading ? "opacity-80" : "opacity-100"}
+        >
+          {isLoading ? <Loader size={18} /> : <p>Register</p>}
+        </Button>
       </form>
     </AuthWrapper>
   );
