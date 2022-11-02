@@ -28,27 +28,27 @@ export default function TopAgentsSection({ data }) {
                                     {agent.description}
                                 </p>
                                 {/* Social links */}
-                                <div className="flex flex-row space-x-2 mt-4">
+                                {/* <div className="flex flex-row space-x-2 mt-4"> */}
                                     {/* Facebook */}
-                                    <a href={agent.social[0].facebook} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconBrandFacebook className="text-primary" /></div>
-                                    </a>
+                                    {/* <a href={agent.social[0].facebook} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconBrandFacebook className="text-primary" /></div>
+                                    </a> */}
 
                                     {/* Twitter */}
-                                    <a href={agent.social[0].twitter} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconBrandTwitter className="text-primary" /></div>
-                                    </a>
+                                    {/* <a href={agent.social[0].twitter} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconBrandTwitter className="text-primary" /></div>
+                                    </a> */}
 
                                     {/* LinkedIn */}
-                                    <a href={agent.social[0].linkedin} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconBrandLinkedin className="text-primary" /></div>
-                                    </a>
+                                    {/* <a href={agent.social[0].linkedin} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconBrandLinkedin className="text-primary" /></div>
+                                    </a> */}
 
                                     {/* Email */}
-                                    <a href={"mailto:" + agent.social[0].email} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconMail className="text-primary" /></div>
-                                    </a>
+                                    {/* <a href={"mailto:" + agent.social[0].email} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconMail className="text-primary" /></div>
+                                    </a> */}
 
                                     {/* Phone */}
-                                    <a href={"tel:" + agent.social[0].phone} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconPhone className="text-primary" /></div>
+                                    {/* <a href={"tel:" + agent.social[0].phone} target="_blank" rel="noopener noreferrer"><div className='bg-primary/20 p-1 cursor-pointer rounded-default duration-300 hover:bg-primary/10'><IconPhone className="text-primary" /></div>
                                     </a>
-                                </div>
+                                </div> */}
                                 {/* Profile view button */}
                                 <div className="mt-2">
                                     {/* replace index with prifile unique id for dynamic route */}

@@ -69,10 +69,10 @@ export default function Index({
         </section>
 
         {/* Reviews */}
-        <Headtitle title={"To reviews"} isLinked={false} />
+        {/* <Headtitle title={"To reviews"} isLinked={false} />
         <section className="mt-2">
           <TopReviewsSection data={reviewdata} />
-        </section>
+        </section> */}
       </Container>
     </>
   );
