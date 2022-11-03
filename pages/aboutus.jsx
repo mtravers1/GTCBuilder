@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Container } from "@mantine/core";
 import { basicsInfoConstants } from "../constants/Basics";
-import { AboutUsData } from "../dummy_data/aboutusdata";
+
 import { getData } from "../services";
 
 // about us page
@@ -17,7 +17,7 @@ export default function aboutus({ aboutus }) {
           <div>
             <Image
               src={
-                // aboutus?.aboutUsBackgroundImageURL ||
+                aboutus?.aboutUsBackgroundImageURL ||
                 "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
               }
               placeholder="blur"
@@ -37,7 +37,7 @@ export default function aboutus({ aboutus }) {
             </div>
             {/* Brand name */}
             <div className="text-white text-4xl font-bold">
-              {basicsInfoConstants?.appName || "GTC Builder"}
+              {aboutus?.appName}
             </div>
           </div>
         </div>
