@@ -4,6 +4,7 @@ import { Container } from "@mantine/core";
 import { basicsInfoConstants } from "../constants/Basics";
 
 import { getData } from "../services";
+import { siteDetails } from "../constants/EndPoints";
 
 // about us page
 // route: /aboutus
@@ -56,7 +57,7 @@ export default function aboutus({ aboutus }) {
 // static Data fetching function from API
 export async function getStaticProps() {
   try {
-    const data = await getData("/gtc/site-details/about-us-details");
+    const data = await getData(siteDetails.aboutUsDetails);
 
     return {
       props: { aboutus: data?.data }, // will be passed to the page component as props
