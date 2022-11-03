@@ -18,7 +18,10 @@ export default function HomeHeader({ data }) {
         {/* Cover image */}
         <div className="brightness-[0.4] h-[600px] w-full mt-16">
           <Image
-            src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            src={
+              data?.homePageImage ||
+              "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+            }
             placeholder="blur"
             blurDataURL="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
             layout="fill"
@@ -29,13 +32,13 @@ export default function HomeHeader({ data }) {
         {/* Title section */}
         <div className="absolute drop-shadow-lg top-0 left-0 flex flex-col h-full w-full laptop:mt-56 mt-24 items-center space-y-2 ">
           <h1 className="pc:text-6xl text-4xl text-white text-left font-bold uppercase">
-            {data.homePageTitle}
+            {data.appName}
           </h1>
           <h1 className="pc:text-4xl tablet:text-2xl text-xl text-white text-center">
             {data.homePageSubTitle}
           </h1>
           <h1 className="pc:text-lg tablet:text-lg text-sm text-white text-center">
-            {basicsInfoConstants.homePageText}
+            {data.homePageText}
           </h1>
         </div>
         {/* Filter section */}

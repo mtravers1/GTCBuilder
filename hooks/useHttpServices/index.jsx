@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-// import { useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
 
 export const useHttpServices = () => {
   const baseURL = process.env.AUTH_BASEURL;
@@ -23,11 +23,10 @@ export const useHttpServices = () => {
   };
   const postProtectedData = async (path, body) => {
     try {
-      const token = "123334";
+      const token = await useCookies("token");
       const { data } = await axios.post(`${baseURL}/${path}`, body, {
         authorization: `Bearer ${token}`,
       });
-      console.log(data.status);
     } catch (error) {
       console.log(error?.response?.status);
       console.log(error?.response?.data?.error?.message);
@@ -52,12 +51,7 @@ export const useHttpServices = () => {
   };
   const getData = async (path) => {
     try {
-      console.log(token);
-      const { data } = await axios.get(`${baseURL}/${path}`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
+      const { data } = await axios.get(`${baseURL}/${path}`);
       return data;
     } catch (error) {
       // console.log(error?.response?.status);
@@ -68,5 +62,12 @@ export const useHttpServices = () => {
     }
   };
 
-  return { isLoading, postData, postProtectedData, getProtectedData, payload };
+  return {
+    isLoading,
+    postData,
+    postProtectedData,
+    getProtectedData,
+    payload,
+    getData,
+  };
 };

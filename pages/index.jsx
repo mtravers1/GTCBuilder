@@ -88,14 +88,14 @@ export async function getStaticProps() {
     const agentsdata = TopAgentsData; //pull dummy agents data
     const reviewdata = ReviewData; //pull dummy review data
     const jumboTronData = await getData("/gtc/site-details/home-titles");
-    console.log(jumboTronData);
+
     return {
       props: {
         propertiesdata,
         categoriessdata,
         agentsdata,
         reviewdata,
-        jumboTronData: jumboTronData?.data[0],
+        jumboTronData: jumboTronData?.data,
       }, // will be passed to the page component as props
     };
   } catch (error) {}
