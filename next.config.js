@@ -6,7 +6,12 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["images.unsplash.com"],
+    domains: [
+      "images.unsplash.com",
+      "res.cloudinary.com",
+      "ucarecdn.com",
+      "placeimg.com",
+    ],
   },
 };
 module.exports = nextConfig;
