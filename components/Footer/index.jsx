@@ -40,11 +40,11 @@ export default function index() {
                         <a href="http://nisalk.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:underline ">Developer</a>
                     </div>
                     {/* 4 column */}
-                    <div className='flex flex-col  basis-1/4'>
-                        <div className="text-2xl font-bold">Subscribe</div>
-                        <div>Subscribe to our mail list</div>
-                        <div>
-                            <form action="flex" method="post">
+                    {/* <div className='flex flex-col  basis-1/4'> */}
+                        {/* <div className="text-2xl font-bold">Subscribe</div>
+                        <div>Subscribe to our mail list</div> */}
+                        {/* <div> */}
+                            {/* <form action="flex" method="post">
                                 <div className="flex space-x-2">
                                     <div>
                                         <TextInput
@@ -59,9 +59,9 @@ export default function index() {
                                         </NormalButton>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
+                            </form> */}
+                        {/* </div> */}
+                    {/* </div> */}
                 </div>
                 <div className='w-full text-center mt-4 text-sm'>{FooterData.copyright}</div>
             </div>
