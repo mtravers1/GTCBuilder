@@ -14,6 +14,7 @@ import { TopAgentsData } from "../dummy_data/topAgentsData";
 import { ReviewData } from "../dummy_data/reviewData";
 import { useStore } from "../zustand/store";
 import { getData } from "../services";
+import { siteDetails } from "../constants/EndPoints";
 
 // main index page of the website each section seperated in sections , can be customized from components/sections files
 // please read the documentation for more information
@@ -22,12 +23,10 @@ export default function Index({
   propertiesdata,
   categoriessdata,
   agentsdata,
-  reviewdata,
+
   jumboTronData,
 }) {
   const count = useStore((state) => state.count);
-  // mentCount(3);
-  console.log(count);
 
   // dev by (nisalk @ Devocade)
   return (
@@ -87,7 +86,7 @@ export async function getStaticProps() {
     const categoriessdata = CategoriesData; //pull dummy categories data
     const agentsdata = TopAgentsData; //pull dummy agents data
     const reviewdata = ReviewData; //pull dummy review data
-    const jumboTronData = await getData("/gtc/site-details/home-titles");
+    const jumboTronData = await getData(siteDetails.homePageDetails);
 
     return {
       props: {
