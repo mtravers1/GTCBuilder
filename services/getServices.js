@@ -18,3 +18,15 @@ export const getProtectedData = async (path, token) => {
   } finally {
   }
 };
+
+export const getData = async (path) => {
+  try {
+    const { data } = await axios.get(`${baseURL}${path}`);
+    return data;
+  } catch (error) {
+    console.log(error?.response);
+    // console.log(error?.response?.data?.error?.message);
+    return error?.response?.data;
+  } finally {
+  }
+};
