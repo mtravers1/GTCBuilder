@@ -7,9 +7,21 @@ export const getProtectedData = async (path, token) => {
     console.log(token);
     const { data } = await axios.get(`${baseURL}${path}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        token,
       },
     });
+    return data;
+  } catch (error) {
+    console.log(error?.response);
+    // console.log(error?.response?.data?.error?.message);
+    return error?.response?.data;
+  } finally {
+  }
+};
+
+export const getData = async (path) => {
+  try {
+    const { data } = await axios.get(`${baseURL}${path}`);
     return data;
   } catch (error) {
     console.log(error?.response);
