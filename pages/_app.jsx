@@ -14,7 +14,10 @@ import { siteDetails } from "../constants/EndPoints";
 function MyApp({ Component, pageProps }) {
   const [appLogo, setAppLogo] = useState("");
   const [appName, setAppName] = useState("");
-  const data = { appName, appLogo };
+  const [contactInfo, setContactInfo] = useState({});
+
+  const data = { appName, appLogo, contactInfo };
+  console.log(data);
 
   const { getData } = useHttpServices();
   useEffect(() => {
@@ -22,8 +25,9 @@ function MyApp({ Component, pageProps }) {
       const data = await getData(siteDetails.appLogo);
       setAppLogo(data?.data?.appLogo);
       const data_ = await getData(siteDetails.homePageDetails);
-
       setAppName(data_?.data?.appName);
+      const contactInfo = await getData(siteDetails.contacts);
+      setContactInfo(contactInfo?.data?.contactInfo);
     })();
   }, []);
 

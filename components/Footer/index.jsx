@@ -44,28 +44,44 @@ export default function Index({ data }) {
             {/* Address */}
             <div className="flex text-sm space-x-2 items-center">
               <IconBuildingBank className="text-primary" />
-              <span>{FooterContacts.address}</span>
+              <span>{data?.contactInfo?.address}</span>
             </div>
             {/* Facebook */}
-            <div className="flex text-sm space-x-2 items-center">
-              <IconBrandFacebook className="text-primary" />
-              <span>{FooterContacts.facebook}</span>
-            </div>
+            {data?.contactInfo?.facebookLink && (
+              <div className="flex text-sm space-x-2 items-center">
+                <IconBrandFacebook className="text-primary" />
+                <a href={data?.contactInfo?.facebookLink} target="_blank">
+                  <span>{data?.contactInfo?.facebookLink}</span>
+                </a>
+              </div>
+            )}
+
             {/* Twitter */}
-            <div className="flex text-sm space-x-2 items-center">
-              <IconBrandTwitter className="text-primary" />
-              <span>{FooterContacts.twitter}</span>
-            </div>
+
+            {data?.contactInfo?.twitterLink && (
+              <div className="flex text-sm space-x-2 items-center">
+                <IconBrandTwitter className="text-primary" />
+                <a href={data?.contactInfo?.twitterLink} target="_blank">
+                  <span>{data?.contactInfo?.twitterLink}</span>
+                </a>
+              </div>
+            )}
+
             {/* Phone */}
-            <div className="flex text-sm space-x-2 items-center">
-              <IconPhone className="text-primary" />
-              <span>{FooterContacts.phone}</span>
-            </div>
+            {data?.contactInfo?.phone && (
+              <div className="flex text-sm space-x-2 items-center">
+                <IconPhone className="text-primary" />
+                <a href={data?.contactInfo?.phone} target="_blank">
+                  <span>{data?.contactInfo?.phone}</span>
+                </a>
+              </div>
+            )}
+
             {/* Email */}
-            <div className="flex text-sm space-x-2 items-center">
+            {/* <div className="flex text-sm space-x-2 items-center">
               <IconMail className="text-primary" />
               <span>{FooterContacts.email}</span>
-            </div>
+            </div> */}
           </div>
           {/* 3 column */}
           <div className="flex flex-col space-y-2 basis-1/4">
