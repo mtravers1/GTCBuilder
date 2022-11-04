@@ -14,7 +14,7 @@ import { FooterContacts, FooterData } from "../../dummy_data/footerData";
 
 // footer componets
 
-export default function Index() {
+export default function Index({ data }) {
   // const httpService=
   //   useEffect(() => {
   //     (async function () {
@@ -36,7 +36,7 @@ export default function Index() {
         <div className="flex laptop:flex-row laptop:space-y-0 space-y-4   flex-col justify-evenly">
           {/* 1 column */}
           <div className="flex flex-col h-full basis-1/4">
-            <h1 className="m-auto font-bold">{basicsInfoConstants.name}</h1>
+            <h1 className="m-auto font-bold">{data?.appName}</h1>
           </div>
           {/* 2 column */}
           <div className="flex flex-col space-y-2 basis-1/4">
