@@ -8,6 +8,7 @@ import {
   IconSearch,
 } from "@tabler/icons";
 import { Divider, Select, Input } from "@mantine/core";
+import { EditableWrapper } from "@alliance-software-development/asd-content-editable-wrapper";
 
 // Home page  header compoent with main titles and filter compoent
 

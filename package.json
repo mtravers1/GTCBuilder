@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@alliance-software-development/asd-content-editable-wrapper": "^1.1.1",
+    "@alliance-software-development/asd-media-react": "^1.0.1",
     "@apollo/client": "",
     "@emotion/cache": "",
     "@emotion/react": "",

@@ -87,6 +87,7 @@ export async function getStaticProps() {
     const agentsdata = TopAgentsData; //pull dummy agents data
     const reviewdata = ReviewData; //pull dummy review data
     const jumboTronData = await getData(siteDetails.homePageDetails);
+    // const content = await getData("")
 
     return {
       props: {
