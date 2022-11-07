@@ -6,6 +6,7 @@ import Links from 'next/link'
 import { Loader } from '../components/Helpers'
 import Cookie from 'js-cookie'
 import { useRouter } from "next/router";
+import { routes } from "../constants/Routes";
 
 export default function Newlogin() {
   const [email, setEmail]=useState('');
@@ -13,6 +14,7 @@ export default function Newlogin() {
   const {postData, isLoading}= useHttpServices()
 
   const body={email,password}
+  const router=useRouter()
 
   const handleLogin = async(e)=>{
     e.preventDefault()
@@ -20,7 +22,7 @@ export default function Newlogin() {
     if (data.status === 200) {
       Cookie.set("token", data?.data?.token);
       Cookie.set("isAdmin", true);
-      // router.push(routes.profile);
+      router.push(routes.profile);
     }
   
     console.log(data)
@@ -30,9 +32,9 @@ export default function Newlogin() {
         <div className='bg-white mt-[70px]'>
         <div className="grid grid-cols-[1.15fr_1fr] text-white">
           
-          <div >
+          <div  className='bg-black' >
 
-          <Image alt ="logo" src='/images/gtclogo.png' height={1000} width={800}/>  
+          <Image objectFit='contain' alt ="logo" src='/images/gtclogo.png' height={1000} width={800}/>  
             
               
               </div>
@@ -59,7 +61,7 @@ export default function Newlogin() {
                   <label >
                   <h3 className='text-black  pt-[10px]'>Email Address</h3>
                 </label>
-                <input className=' border-black w-full text-black rounded-[6px] border-black bg-transparent  mb-[30px] p-3' 
+                <input className=' border-2 w-full text-black rounded-[6px]  bg-transparent  mb-[30px] p-3' 
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}
                 type={'text'}></input>
@@ -70,7 +72,7 @@ export default function Newlogin() {
                   <h3 className='text-black' >Password</h3>
                 </label>
                 <input 
-                className='text-black w-full rounded-[6px] border-black bg-transparent border-black p-3' 
+                className='text-black w-full rounded-[6px] border-2 bg-transparent  p-3' 
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
                 type={'password'}></input>
