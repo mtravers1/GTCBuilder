@@ -1,4 +1,4 @@
-import { Input, NumberInput } from "@mantine/core";
+import { Input, NumberInput, Checkbox } from "@mantine/core";
 import { DatePicker } from "@mantine/dates";
 
 // built date section of the add proprty stepper
@@ -14,6 +14,8 @@ export default function OverviewStep({ body, setBody }) {
             label="Built year"
             initialLevel="year"
             withAsterisk
+            value={body.buildYear}
+            onChange={(date) => setBody({ ...body, builtYear: date })}
           />
         </div>
         {/* Bedrooms */}
@@ -68,6 +70,20 @@ export default function OverviewStep({ body, setBody }) {
               onChange={(value) => setBody({ ...body, floors: value })}
             />
           </Input.Wrapper>
+        </div>
+        <div>
+          <Checkbox
+            color={"teal"}
+            label="Is top property?"
+            checked={body?.isTopProperty}
+            onChange={(e) =>
+              setBody({
+                ...body,
+
+                isTopProperty: e.currentTarget?.checked,
+              })
+            }
+          />
         </div>
       </div>
     </>

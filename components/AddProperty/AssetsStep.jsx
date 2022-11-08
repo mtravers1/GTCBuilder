@@ -4,8 +4,8 @@ import { useState } from "react";
 
 // asset section of the add proprty stepper like images and videos
 
-export default function AssetsStep({ body, setBody }) {
-  const [files, setFiles] = useState([]); // hold the file data ina react state
+export default function AssetsStep({ body, setBody, setFiles, files }) {
+  // hold the file data ina react state
 
   // Image preview component
   const previews = files.map((file, index) => {
@@ -43,8 +43,8 @@ export default function AssetsStep({ body, setBody }) {
           <div>
             <label className="text-sm">Video cover image</label>
             {/* Image drop zone */}
-            <Dropzone accept={IMAGE_MIME_TYPE} onDrop={setFiles} maxFiles={5}>
-              <Text align="center">Drop images here</Text>
+            <Dropzone accept={IMAGE_MIME_TYPE} onDrop={setFiles} maxFiles={1}>
+              <Text align="center">Drop image here</Text>
             </Dropzone>
 
             {/* Preview grid */}

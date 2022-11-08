@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@alliance-software-development/asd-content-editable-wrapper": "^1.1.1",
+    "@alliance-software-development/asd-content-editable-wrapper": "^1.1.2",
     "@alliance-software-development/asd-media-react": "^1.0.1",
     "@apollo/client": "",
     "@emotion/cache": "",
@@ -40,6 +40,7 @@
     "nextjs-progressbar": "^0.0.14",
     "react": "",
     "react-awesome-reveal": "^4.0.1",
+    "react-cookie": "^4.1.1",
     "react-dom": "",
     "react-fast-marquee": "",
     "react-medium-image-zoom": "^5.0.1",
