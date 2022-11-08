@@ -7,7 +7,7 @@ export const getProtectedData = async (path, token) => {
     console.log(token);
     const { data } = await axios.get(`${baseURL}${path}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        token,
       },
     });
     return data;

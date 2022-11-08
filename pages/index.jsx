@@ -13,6 +13,8 @@ import { CategoriesData } from "../dummy_data/categoriesData";
 import { TopAgentsData } from "../dummy_data/topAgentsData";
 import { ReviewData } from "../dummy_data/reviewData";
 import { useStore } from "../zustand/store";
+import { getData } from "../services";
+import { siteDetails } from "../constants/EndPoints";
 
 // main index page of the website each section seperated in sections , can be customized from components/sections files
 // please read the documentation for more information
@@ -21,11 +23,10 @@ export default function Index({
   propertiesdata,
   categoriessdata,
   agentsdata,
-  reviewdata,
+
+  jumboTronData,
 }) {
   const count = useStore((state) => state.count);
-  // mentCount(3);
-  console.log(count);
 
   // dev by (nisalk @ Devocade)
   return (
@@ -36,7 +37,7 @@ export default function Index({
 
       {/* Title header component */}
       <div>
-        <HomeHeader />
+        <HomeHeader data={jumboTronData} />
       </div>
 
       <Container size="xl" className="mt-20">
@@ -80,11 +81,21 @@ export default function Index({
 
 // static Data fetching function from Next.js
 export async function getStaticProps() {
-  const propertiesdata = PropertiesData; //pull dummy properties data
-  const categoriessdata = CategoriesData; //pull dummy categories data
-  const agentsdata = TopAgentsData; //pull dummy agents data
-  const reviewdata = ReviewData; //pull dummy review data
-  return {
-    props: { propertiesdata, categoriessdata, agentsdata, reviewdata }, // will be passed to the page component as props
-  };
+  try {
+    const propertiesdata = PropertiesData; //pull dummy properties data
+    const categoriessdata = CategoriesData; //pull dummy categories data
+    const agentsdata = TopAgentsData; //pull dummy agents data
+    const reviewdata = ReviewData; //pull dummy review data
+    const jumboTronData = await getData(siteDetails.homePageDetails);
+
+    return {
+      props: {
+        propertiesdata,
+        categoriessdata,
+        agentsdata,
+        reviewdata,
+        jumboTronData: jumboTronData?.data,
+      }, // will be passed to the page component as props
+    };
+  } catch (error) {}
 }

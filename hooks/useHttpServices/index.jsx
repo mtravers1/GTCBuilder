@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { useCookies } from "react-cookie";
+
 
 export const useHttpServices = () => {
   const baseURL = process.env.AUTH_BASEURL;
@@ -23,11 +25,10 @@ export const useHttpServices = () => {
   };
   const postProtectedData = async (path, body) => {
     try {
-      const token = "123334";
+      const token = await useCookies("token");
       const { data } = await axios.post(`${baseURL}/${path}`, body, {
         authorization: `Bearer ${token}`,
       });
-      console.log(data.status);
     } catch (error) {
       console.log(error?.response?.status);
       console.log(error?.response?.data?.error?.message);
