@@ -55,12 +55,13 @@ export default function index({ allProperties, type }) {
 // Pull propperties data from API
 export async function getServerSideProps({ query }) {
   const { type } = query;
-  const type_ = type[0].toUpperCase() + type.substr(1);
+  const type_ = type[0].toUpperCase() + type.substr(1, type.length - 2);
+  console.log(type_);
   const propertiesdata = PropertiesData; //pull dummy properties data
   const allProperties = await getData(
     `${properties.addProperty}?type=${type_}`
   );
   return {
-    props: { propertiesdata, allProperties: allProperties.data, type: type_ }, // will be passed to the page component as props
+    props: { propertiesdata, allProperties: allProperties.data, type }, // will be passed to the page component as props
   };
 }

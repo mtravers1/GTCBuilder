@@ -56,7 +56,7 @@ export default function DetailsStep({ body, setBody }) {
             placeholder="Apartment"
             data={[
               { value: "Apartment", label: "Apartment" },
-              { value: "Condos", label: "Condos" },
+              { value: "Condos", label: "Condo" },
               { value: "House", label: "House" },
               //   { value: "4", label: "Flat" },
             ]}

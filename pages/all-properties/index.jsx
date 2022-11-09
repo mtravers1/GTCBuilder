@@ -46,9 +46,24 @@ export default function index({ propertiesdata, allProperties }) {
 }
 
 // Pull propperties data from API
-export async function getStaticProps() {
+export async function getServerSideProps({ query }) {
+  let { type, rooms, floors } = query;
+  let path = properties.addProperty;
+
+  if (type) {
+    type = type.substr(0, type.length - 1);
+    path += `?type=${type}`;
+  }
+  if (rooms) {
+    const con = path.includes("?") ? "&" : "?";
+    path += `${con}rooms=${rooms}`;
+  }
+  if (floors) {
+    const con = path.includes("?") ? "&" : "?";
+    path += `${con}floors=${floors}`;
+  }
   const propertiesdata = PropertiesData; //pull dummy properties data
-  const allProperties = await getData(properties.addProperty);
+  const allProperties = await getData(path);
   return {
     props: { propertiesdata, allProperties: allProperties.data }, // will be passed to the page component as props
   };

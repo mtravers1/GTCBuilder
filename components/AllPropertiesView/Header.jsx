@@ -6,11 +6,37 @@ import { basicsInfoConstants } from "../../constants/Basics";
 import LocationFilterTab from "./Tabs/LocationFilterTab";
 import PriceFilterTab from "./Tabs/PriceFilterTab";
 import TypeFilterTab from "./Tabs/TypeFilterTab";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 // in view all property page top filer componet has three tabs
 // this is the main tab component in Tabs folder has sub componnets
 
 export default function AllPropertiesHeader() {
+  const [type, setType] = useState();
+  const [rooms, setRooms] = useState();
+  const [floors, setFloors] = useState();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    let path = router.pathname;
+    console.log(path);
+    if (type) {
+      const con = path.includes("?") ? "&" : "?";
+      path += `${con}type=${type}`;
+    }
+    if (rooms) {
+      const con = path.includes("?") ? "&" : "?";
+      path += `${con}rooms=${rooms}`;
+    }
+    if (floors) {
+      const con = path.includes("?") ? "&" : "?";
+      path += `${con}floors=${floors}`;
+    }
+    router.push(path);
+  }, [type, rooms, floors]);
+
   return (
     <>
       <div className="mb-4 relative">
@@ -80,7 +106,14 @@ export default function AllPropertiesHeader() {
             {/* Type filter */}
             <Tabs.Panel value="type" pt="xs">
               {/* refer tas folder */}
-              <TypeFilterTab />
+              <TypeFilterTab
+                type={type}
+                setType={setType}
+                rooms={rooms}
+                setRooms={setRooms}
+                floors={floors}
+                setFloors={setFloors}
+              />
             </Tabs.Panel>
           </Tabs>
         </div>
