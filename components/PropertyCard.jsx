@@ -126,9 +126,9 @@ export default function PropertyCard({ data }) {
                 {data.title}
               </div>
               {/* Type */}
-              <div className="font-bold text-black/60 text-left text-sm">
+              {/* <div className="font-bold text-black/60 text-left text-sm">
                 {data.type}
-              </div>
+              </div> */}
               {/* Location */}
               <div className="font-bold text-black/50 text-left text-sm mb-4">
                 {data.location}
@@ -168,7 +168,7 @@ export default function PropertyCard({ data }) {
               {/* Meta */}
               <div className="flex items-center space-x-2 mt-4">
                 {/* tags array */}
-                {[data?.sellType, data?.priceType].map((tag, index) => (
+                {[data?.sellType, data?.priceType, data?.type].map((tag, index) => (
                   <Badge
                     key={index}
                     variant="filled"
