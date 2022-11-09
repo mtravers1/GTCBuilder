@@ -73,8 +73,32 @@ export default function ConsultantStep({ body, setBody, files, setFiles }) {
               />
             </Input.Wrapper>
           </div>
-           {/* Email */}
-           <div>
+          {/* Mobile */}
+          <div>
+            <Input.Wrapper label="Mobile number" required>
+              <NumberInput
+                placeholder="+91---------"
+                value={body?.agent?.mobile}
+                onChange={(value) =>
+                  setBody({ ...body, agent: { ...body.agent, mobile: value } })
+                }
+              />
+            </Input.Wrapper>
+          </div>
+          {/* Phone */}
+          <div>
+            <Input.Wrapper label="Phone number" required>
+              <NumberInput
+                placeholder="+91---------"
+                value={body?.agent?.phone}
+                onChange={(value) =>
+                  setBody({ ...body, agent: { ...body.agent, phone: value } })
+                }
+              />
+            </Input.Wrapper>
+          </div>
+          {/* Email */}
+          <div>
             <Input.Wrapper label="Email" required>
               <Input
                 type="email"
@@ -89,33 +113,6 @@ export default function ConsultantStep({ body, setBody, files, setFiles }) {
               />
             </Input.Wrapper>
           </div>
-
-          {/* Mobile */}
-          <div>
-            <Input.Wrapper label="Mobile number" required>
-              <NumberInput
-                placeholder="+91---------"
-                value={body?.agent?.mobile}
-                onChange={(value) =>
-                  setBody({ ...body, agent: { ...body.agent, mobile: value } })
-                }
-              />
-          {/* Phone */}
-          <div>
-            <Input.Wrapper label="Phone number" required>
-              <NumberInput
-                placeholder="+91---------"
-                value={body?.agent?.phone}
-                onChange={(value) =>
-                  setBody({ ...body, agent: { ...body.agent, phone: value } })
-                }
-              />
-            </Input.Wrapper>
-          </div>
-          
-            </Input.Wrapper>
-          </div>
-         
           {/* Website */}
           <div>
             <Input.Wrapper label="Website" required>
