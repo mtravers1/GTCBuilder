@@ -27,7 +27,6 @@ export const useHttpServices = () => {
       const { data } = await axios.post(`${baseURL}/${path}`, body, {
         authorization: `Bearer ${token}`,
       });
-      console.log(data.status);
     } catch (error) {
       console.log(error?.response?.status);
       console.log(error?.response?.data?.error?.message);
@@ -35,7 +34,6 @@ export const useHttpServices = () => {
   };
   const getProtectedData = async (path, token) => {
     try {
-      console.log(token);
       const { data } = await axios.get(`${baseURL}/${path}`, {
         headers: {
           authorization: `Bearer ${token}`,

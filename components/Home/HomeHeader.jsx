@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+// import { EditableWrapper } from "@alliance-software-development/asd-content-editable-wrapper";
 import { basicsInfoConstants } from "../../constants/Basics";
 import {
   IconMapPin,
@@ -9,25 +10,45 @@ import {
 } from "@tabler/icons";
 import { Divider, Select, Input } from "@mantine/core";
 
+import { EditableWrapper } from "@alliance-software-development/asd-content-editable-wrapper";
+
+import { useHttpServices } from "../../hooks/useHttpServices";
+
 // Home page  header compoent with main titles and filter compoent
 
-export default function HomeHeader({ data }) {
+export default function HomeHeader({ data, pageContent }) {
+  const { postProtectedData } = useHttpServices();
+  const handleFinishEditing = async (secionId, newContent) => {
+    await postProtectedData(`/content/${secionId}`, newContent);
+  };
+
   return (
     <>
       <div className="relative ">
         {/* Cover image */}
         <div className="brightness-[0.4] h-[600px] w-full mt-16">
-          <Image
-            src={
-              data?.homePageImage ||
-              "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            }
-            placeholder="blur"
-            blurDataURL="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-            layout="fill"
-            objectFit="cover"
-            alt="cover image"
-          />
+          <EditableWrapper
+            data={pageContent.banner}
+            sectionId="banner-url"
+            sectionName="banner"
+            handleFinishEditing={handleFinishEditing}
+            isValidated
+            isImage
+            className="h-full"
+          >
+            <Image
+              src={
+                // pageContent.banner.content["banner-url"] ||
+                data.homePageImage ||
+                "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              }
+              placeholder="blur"
+              blurDataURL="https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              layout="fill"
+              objectFit="cover"
+              alt="cover image"
+            />
+          </EditableWrapper>
         </div>
         {/* Title section */}
         <div className="absolute drop-shadow-lg top-0 left-0 flex flex-col h-full w-full laptop:mt-56 mt-24 items-center space-y-2 ">

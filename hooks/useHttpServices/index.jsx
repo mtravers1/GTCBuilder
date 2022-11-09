@@ -8,16 +8,16 @@ export const useHttpServices = () => {
   const baseURL = process.env.AUTH_BASEURL;
   const [isLoading, setIsLoading] = useState(false);
   const [payload, setPayload] = useState({});
-  // const [cookies, setCookie] = useCookies(["token"]);
+  const [cookies, setCookie] = useCookies(["token"]);
   const postData = async (path, body) => {
     try {
       setIsLoading(true);
-      const { data } = await axios.post(`${baseURL}/${path}`, body);
+      const { data } = await axios.post(`${baseURL}${path}`, body);
 
       return data;
     } catch (error) {
       //  error?.response
-      console.log(error?.response?.data);
+      console.log(error?.response);
       return error?.response?.data;
     } finally {
       setIsLoading(false);
@@ -25,18 +25,21 @@ export const useHttpServices = () => {
   };
   const postProtectedData = async (path, body) => {
     try {
-      const token = await useCookies("token");
-      const { data } = await axios.post(`${baseURL}/${path}`, body, {
-        authorization: `Bearer ${token}`,
+      setIsLoading(true);
+      const { token } = cookies;
+
+      const { data } = await axios.post(`${baseURL}${path}`, body, {
+        token,
       });
+      return data;
     } catch (error) {
-      console.log(error?.response?.status);
-      console.log(error?.response?.data?.error?.message);
+      return { error: error?.response?.data };
+    } finally {
+      setIsLoading(false);
     }
   };
   const getProtectedData = async (path, token) => {
     try {
-      console.log(token);
       const { data } = await axios.get(`${baseURL}/${path}`, {
         headers: {
           authorization: `Bearer ${token}`,

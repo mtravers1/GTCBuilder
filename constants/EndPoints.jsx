@@ -7,3 +7,12 @@ export const siteDetails = {
   appLogo: `${siteDetailsBase}/logo`,
   contacts: `${siteDetailsBase}/contacts`,
 };
+
+const propertiesBase = `/${base}/properties`;
+
+export const properties = {
+  addProperty: `${propertiesBase}`,
+  homePageDetails: `${siteDetailsBase}/home-titles`,
+  appLogo: `${siteDetailsBase}/logo`,
+  contacts: `${siteDetailsBase}/contacts`,
+};

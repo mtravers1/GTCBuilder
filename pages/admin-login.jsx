@@ -1,3 +1,4 @@
+
 import Head from 'next/head'
 import Image from 'next/image'
 import {useState} from 'react'
@@ -40,6 +41,23 @@ export default function Newlogin() {
               </div>
 
 
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const data = await postData("/admin/login", body);
+    console.log(data);
+  };
+
+  return (
+    <div className="bg-white mt-[70px]">
+      <div className="grid grid-cols-[1.15fr_1fr] text-white">
+        <div>
+          <Image
+            alt="logo"
+            src="/images/gtclogo.png"
+            height={400}
+            width={600}
+          />
+        </div>
 
               <div className="p-[70px]">
                 <span className='text-green-700 text-[24px]'>
@@ -87,12 +105,19 @@ export default function Newlogin() {
                 </div>
                 
                 </form>
-                </div>
-                
-              
-              </div>
 
+                </div>
+                <button
+                  className="px-[100px] py-5 bg-[#28AE68] text-white font-semibold rounded-lg opacity-100"
+                  type="submit"
+                >
+                  {isLoading ? <Loader size={20} /> : "Login"}
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        </div>
-      )
-    }
+      </div>
+    </div>
+  );
+}

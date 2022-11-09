@@ -14,7 +14,7 @@ import { TopAgentsData } from "../dummy_data/topAgentsData";
 import { ReviewData } from "../dummy_data/reviewData";
 import { useStore } from "../zustand/store";
 import { getData } from "../services";
-import { siteDetails } from "../constants/EndPoints";
+import { properties, siteDetails } from "../constants/EndPoints";
 
 // main index page of the website each section seperated in sections , can be customized from components/sections files
 // please read the documentation for more information
@@ -25,6 +25,8 @@ export default function Index({
   agentsdata,
 
   jumboTronData,
+  pageContent,
+  allProperties,
 }) {
   const count = useStore((state) => state.count);
 
@@ -37,18 +39,18 @@ export default function Index({
 
       {/* Title header component */}
       <div>
-        <HomeHeader data={jumboTronData} />
+        <HomeHeader data={jumboTronData} pageContent={pageContent} />
       </div>
 
       <Container size="xl" className="mt-20">
         {/* Top properties */}
         <Headtitle
           title={"Top properties"}
-          link="/allproperties"
-          isLinked={true}
+          link="/all-properties"
+          isLinked={false}
         />
         <section>
-          <TopPropertiesSection data={propertiesdata} />
+          <TopPropertiesSection allProperties={allProperties} />
         </section>
 
         {/* Categories */}
@@ -87,6 +89,15 @@ export async function getStaticProps() {
     const agentsdata = TopAgentsData; //pull dummy agents data
     const reviewdata = ReviewData; //pull dummy review data
     const jumboTronData = await getData(siteDetails.homePageDetails);
+    const allProperties = await getData(`${properties.addProperty}?isTop=1`);
+
+    const pageData = await getData(
+      "/content?resource=gtc-builder&page=home-page"
+    );
+    const pageContent = pageData.data.reduce(
+      (acc, cur) => ({ ...acc, [cur.type]: cur }),
+      {}
+    );
 
     return {
       props: {
@@ -95,6 +106,8 @@ export async function getStaticProps() {
         agentsdata,
         reviewdata,
         jumboTronData: jumboTronData?.data,
+        pageContent,
+        allProperties: allProperties?.data,
       }, // will be passed to the page component as props
     };
   } catch (error) {}

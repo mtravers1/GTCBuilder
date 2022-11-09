@@ -3,8 +3,6 @@ const baseURL = process.env.AUTH_BASEURL;
 
 export const getProtectedData = async (path, token) => {
   try {
-    console.log("\nhere");
-    console.log(token);
     const { data } = await axios.get(`${baseURL}${path}`, {
       headers: {
         token,
