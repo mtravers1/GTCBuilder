@@ -12,6 +12,7 @@ export default function TypeFilterTab({
   setRooms,
   floors,
   setFloors,
+  activeType,
 }) {
   // Price range marks
 
@@ -21,7 +22,7 @@ export default function TypeFilterTab({
         {/* Filters */}
         <div className="flex pc:flex-row flex-col pc:space-x-4 pc:space-y-0 space-y-2">
           {/* Type */}
-          <div className="flex space-x-2">
+          <div className={"flex space-x-2 " + (activeType ? "hidden" : "")}>
             <div>
               <IconCategory className="text-primary" />
             </div>

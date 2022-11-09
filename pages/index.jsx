@@ -89,9 +89,7 @@ export async function getStaticProps() {
     const agentsdata = TopAgentsData; //pull dummy agents data
     const reviewdata = ReviewData; //pull dummy review data
     const jumboTronData = await getData(siteDetails.homePageDetails);
-    const allProperties = await getData(
-      `${properties.addProperty}?type=Condos`
-    );
+    const allProperties = await getData(`${properties.addProperty}?isTop=1`);
 
     const pageData = await getData(
       "/content?resource=gtc-builder&page=home-page"

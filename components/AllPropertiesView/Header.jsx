@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 // in view all property page top filer componet has three tabs
 // this is the main tab component in Tabs folder has sub componnets
 
-export default function AllPropertiesHeader() {
+export default function AllPropertiesHeader({ activeType }) {
   const [type, setType] = useState();
   const [rooms, setRooms] = useState();
   const [floors, setFloors] = useState();
@@ -80,12 +80,12 @@ export default function AllPropertiesHeader() {
               >
                 Location
               </Tabs.Tab>
-              <Tabs.Tab
+              {/* <Tabs.Tab
                 value="price"
                 icon={<IconCash className="text-primary" size={14} />}
               >
                 Price
-              </Tabs.Tab>
+              </Tabs.Tab> */}
               <Tabs.Tab
                 value="type"
                 icon={<IconCategory className="text-primary" size={14} />}
@@ -99,10 +99,10 @@ export default function AllPropertiesHeader() {
               <LocationFilterTab />
             </Tabs.Panel>
             {/* Price filter */}
-            <Tabs.Panel value="price" pt="xs">
-              {/* refer tas folder */}
-              <PriceFilterTab />
-            </Tabs.Panel>
+            {/* <Tabs.Panel value="price" pt="xs"> */}
+            {/* refer tas folder */}
+            {/* <PriceFilterTab /> */}
+            {/* </Tabs.Panel> */}
             {/* Type filter */}
             <Tabs.Panel value="type" pt="xs">
               {/* refer tas folder */}
@@ -113,6 +113,7 @@ export default function AllPropertiesHeader() {
                 setRooms={setRooms}
                 floors={floors}
                 setFloors={setFloors}
+                activeType={activeType}
               />
             </Tabs.Panel>
           </Tabs>

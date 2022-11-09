@@ -26,15 +26,34 @@ export default function CenterSection() {
           </Menu.Target>
           <Menu.Dropdown>
             <Menu.Label className="font-bold text-black">
-              <Link href={`${routes.allProperties}/apartments`}>
+              <Link
+                href={{
+                  pathname: `${routes.allProperties}/[type]`,
+                  query: { type: "apartments" },
+                }}
+              >
                 Apartments
               </Link>
             </Menu.Label>
             <Menu.Label className="font-bold text-black">
-              <Link href={`${routes.allProperties}/houses`}>Houses</Link>
+              <Link
+                href={{
+                  pathname: `${routes.allProperties}/[type]`,
+                  query: { type: "houses" },
+                }}
+              >
+                Houses
+              </Link>
             </Menu.Label>
             <Menu.Label className="font-bold text-black">
-              <Link href={`${routes.allProperties}/condos`}>Condos</Link>
+              <Link
+                href={{
+                  pathname: `${routes.allProperties}/[type]`,
+                  query: { type: "condos" },
+                }}
+              >
+                Condos
+              </Link>
             </Menu.Label>
           </Menu.Dropdown>
         </Menu>

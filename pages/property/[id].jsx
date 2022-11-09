@@ -172,7 +172,7 @@ export async function getServerSideProps({ query }) {
 
   try {
     const property = await getData(`/gtc/properties/slug/${id}`);
-    console.log(property);
+
     return {
       props: { property: property?.data }, // will be passed to the page component as props
     };

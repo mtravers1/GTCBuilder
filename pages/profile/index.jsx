@@ -40,7 +40,6 @@ export async function getServerSideProps({ req }) {
     const { token } = req.cookies;
 
     const data = await getProtectedData("/auth/profile/user", token);
-    console.log(data);
   } catch (error) {
     console.log(error);
   }

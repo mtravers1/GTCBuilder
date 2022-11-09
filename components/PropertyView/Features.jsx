@@ -36,7 +36,7 @@ export default function Freatures({ property }) {
   //   console.log(property.features);
   const indoor =
     property?.features?.indoor && Object.keys(property?.features?.indoor);
-  console.log(indoor);
+
   return (
     <>
       <Accordion
@@ -54,7 +54,6 @@ export default function Freatures({ property }) {
             <div className="grid pc:grid-cols-3 grid-cols-2 gap-2 pc:text-base text-sm">
               {indoor?.map((feature, idx) => {
                 const Icon = MakeComponent(features[feature]);
-                console.log(Icon);
 
                 return (
                   <div className="flex space-x-2">

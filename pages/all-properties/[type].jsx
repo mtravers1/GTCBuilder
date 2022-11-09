@@ -20,7 +20,7 @@ export default function index({ allProperties, type }) {
         </title>
       </Head>
       <div>
-        <AllPropertiesHeader />
+        <AllPropertiesHeader activeType={type} />
       </div>
       {/* Properties section */}
       <Container size="xl">
@@ -56,7 +56,7 @@ export default function index({ allProperties, type }) {
 export async function getServerSideProps({ query }) {
   const { type } = query;
   const type_ = type[0].toUpperCase() + type.substr(1, type.length - 2);
-  console.log(type_);
+
   const propertiesdata = PropertiesData; //pull dummy properties data
   const allProperties = await getData(
     `${properties.addProperty}?type=${type_}`

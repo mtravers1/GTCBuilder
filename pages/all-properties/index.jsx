@@ -11,7 +11,7 @@ import { properties } from "../../constants/EndPoints";
 // view all properties page same for categories page
 // route: /allproperties
 
-export default function index({ propertiesdata, allProperties }) {
+export default function Index({ allProperties }) {
   return (
     <>
       <Head>
