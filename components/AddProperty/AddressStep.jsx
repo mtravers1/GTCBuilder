@@ -52,7 +52,7 @@ export default function AddressStep({ body, setBody }) {
         </div>
         {/* Provinece */}
         <div>
-          <Input.Wrapper label="Provinece" required>
+          <Input.Wrapper label="State" required>
             <Input
               placeholder="Western"
               value={body?.address?.province}
