@@ -67,10 +67,14 @@ export default function Index({
         </section>
 
         {/* Single property grid */}
-        <Headtitle title={"Feature property"} isLinked={false} />
-        <section className="mt-2">
-          <SingleProperty property={featuredProperty} />
-        </section>
+        {featuredProperty && (
+          <>
+            <Headtitle title={"Feature property"} isLinked={false} />
+            <section className="mt-2">
+              <SingleProperty property={featuredProperty} />
+            </section>
+          </>
+        )}
 
         {/* Reviews */}
         {/* <Headtitle title={"To reviews"} isLinked={false} />
@@ -94,7 +98,6 @@ export async function getStaticProps() {
     const featuredProperty = await getData(
       `${properties.addProperty}?featured=1`
     );
-    console.log(featuredProperty);
 
     const pageData = await getData(
       "/content?resource=gtc-builder&page=home-page"
