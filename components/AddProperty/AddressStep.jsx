@@ -1,4 +1,4 @@
-import { NumberInput, Input } from "@mantine/core";
+import { NumberInput, Input, Select } from "@mantine/core";
 
 // address section of the add proprty stepper
 export default function AddressStep({ body, setBody }) {
@@ -82,18 +82,18 @@ export default function AddressStep({ body, setBody }) {
         </div>
         {/* Country */}
         <div>
-          <Input.Wrapper label="Country" required>
-            <Input
-              placeholder="Sri Lanka"
-              value={body?.address?.country}
-              onChange={(event) =>
-                setBody({
-                  ...body,
-                  address: { ...body.address, country: event.target.value },
-                })
-              }
-            />
-          </Input.Wrapper>
+          <Select
+            label="Country"
+            placeholder="Apartment"
+            data={[{ value: "United States", label: "United States" }]}
+            value={body.address?.country}
+            onChange={(value) =>
+              setBody({
+                ...body,
+                address: { ...body.address, country: value },
+              })
+            }
+          />
         </div>
         {/* Locate */}
         <div>

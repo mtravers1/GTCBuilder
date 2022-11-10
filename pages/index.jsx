@@ -27,6 +27,7 @@ export default function Index({
   jumboTronData,
   pageContent,
   allProperties,
+  featuredProperty,
 }) {
   const count = useStore((state) => state.count);
 
@@ -68,7 +69,7 @@ export default function Index({
         {/* Single property grid */}
         <Headtitle title={"Feature property"} isLinked={false} />
         <section className="mt-2">
-          <SingleProperty data={propertiesdata} />
+          <SingleProperty property={featuredProperty} />
         </section>
 
         {/* Reviews */}
@@ -90,6 +91,10 @@ export async function getStaticProps() {
     const reviewdata = ReviewData; //pull dummy review data
     const jumboTronData = await getData(siteDetails.homePageDetails);
     const allProperties = await getData(`${properties.addProperty}?isTop=1`);
+    const featuredProperty = await getData(
+      `${properties.addProperty}?featured=1`
+    );
+    console.log(featuredProperty);
 
     const pageData = await getData(
       "/content?resource=gtc-builder&page=home-page"
@@ -108,6 +113,7 @@ export async function getStaticProps() {
         jumboTronData: jumboTronData?.data,
         pageContent,
         allProperties: allProperties?.data,
+        featuredProperty: featuredProperty?.data[0],
       }, // will be passed to the page component as props
     };
   } catch (error) {}
