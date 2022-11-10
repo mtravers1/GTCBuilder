@@ -144,9 +144,9 @@ export default function Index({ property }) {
             </div>
 
             {/* Review */}
-            <div>
+            {/* <div>
               <Review />
-            </div>
+            </div> */}
           </div>
           {/* Right */}
           <div className="flex flex-col space-y-4 basis-1/3">
