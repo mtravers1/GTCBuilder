@@ -2,12 +2,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import {useState} from 'react'
-import { useHttpServices } from '../hooks/useHttpServices'
+import { useHttpServices } from '/hooks/useHttpServices'
 import Links from 'next/link'
-import { Loader } from '../components/Helpers'
+import { Loader } from '/components/Helpers'
 import Cookie from 'js-cookie'
 import { useRouter } from "next/router";
-import { routes } from "../constants/Routes";
+import { routes } from "/constants/Routes";
 
 export default function Newlogin() {
   const [email, setEmail]=useState('');
@@ -34,7 +34,7 @@ export default function Newlogin() {
   return (
     <div className="bg-white mt-[70px]">
       <div className="grid grid-cols-[1.15fr_1fr] text-white">
-        <div>
+        <div className='bg-black'>
           <Image
             alt="logo"
             src="/images/gtclogo.png"
