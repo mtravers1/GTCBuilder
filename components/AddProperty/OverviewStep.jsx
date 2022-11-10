@@ -13,14 +13,14 @@ export default function OverviewStep({ body, setBody }) {
             placeholder="Pick year"
             label="Built year"
             initialLevel="year"
-            withAsterisk
+            // withAsterisk
             value={body.buildYear}
             onChange={(date) => setBody({ ...body, builtYear: date })}
           />
         </div>
         {/* Bedrooms */}
         <div>
-          <Input.Wrapper label="Bedrooms" required>
+          <Input.Wrapper label="Bedrooms">
             <Input
               placeholder="2"
               value={body.bedRooms}
@@ -30,7 +30,7 @@ export default function OverviewStep({ body, setBody }) {
         </div>
         {/* Bathrooms */}
         <div>
-          <Input.Wrapper label="Bathrooms" required>
+          <Input.Wrapper label="Bathrooms">
             <Input
               placeholder="2"
               value={body.bathRooms}
@@ -40,7 +40,7 @@ export default function OverviewStep({ body, setBody }) {
         </div>
         {/* Garages */}
         <div>
-          <Input.Wrapper label="Garages" required>
+          <Input.Wrapper label="Garages">
             <NumberInput
               withAsterisk
               placeholder="2"
@@ -51,7 +51,7 @@ export default function OverviewStep({ body, setBody }) {
         </div>
         {/* Sq feets */}
         <div>
-          <Input.Wrapper label="Square feets" required>
+          <Input.Wrapper label="Square feets">
             <NumberInput
               placeholder="1000"
               withAsterisk
@@ -62,7 +62,7 @@ export default function OverviewStep({ body, setBody }) {
         </div>
         {/* Floors */}
         <div>
-          <Input.Wrapper label="Floors" required>
+          <Input.Wrapper label="Floors">
             <NumberInput
               placeholder="2"
               withAsterisk

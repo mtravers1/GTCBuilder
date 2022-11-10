@@ -87,7 +87,7 @@ export default function ConsultantStep({ body, setBody, files, setFiles }) {
           </div>
           {/* Phone */}
           <div>
-            <Input.Wrapper label="Phone number" required>
+            <Input.Wrapper label="Phone number">
               <NumberInput
                 placeholder="+91---------"
                 value={body?.agent?.phone}
@@ -99,7 +99,7 @@ export default function ConsultantStep({ body, setBody, files, setFiles }) {
           </div>
           {/* Email */}
           <div>
-            <Input.Wrapper label="Email" required>
+            <Input.Wrapper label="Email">
               <Input
                 type="email"
                 placeholder="doe@gmail.com"
@@ -115,7 +115,7 @@ export default function ConsultantStep({ body, setBody, files, setFiles }) {
           </div>
           {/* Website */}
           <div>
-            <Input.Wrapper label="Website" required>
+            <Input.Wrapper label="Website">
               <Input
                 placeholder="www.example.com"
                 value={body?.agent?.website}

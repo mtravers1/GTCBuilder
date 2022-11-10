@@ -133,50 +133,56 @@ export default function PropertyCard({ data }) {
               <div className="font-bold text-black/50 text-left text-sm mb-4">
                 {data.location}
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between h-6">
                 {/* Bedrooms */}
-                <div className="flex items-center space-x-2">
-                  <div>
-                    <IconBed className="text-primary" />
+                {data.bedRooms && (
+                  <div className="flex items-center space-x-2">
+                    <div>
+                      <IconBed className="text-primary" />
+                    </div>
+                    <div>
+                      <span className="font-bold text-primary">Beds</span>
+                    </div>
+                    <div>
+                      <span className="font-bold text-primary">
+                        {data.bedRooms}
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-bold text-primary">Beds</span>
-                  </div>
-                  <div>
-                    <span className="font-bold text-primary">
-                      {data.bedRooms}
-                    </span>
-                  </div>
-                </div>
+                )}
 
                 {/* Bathrooms */}
-                <div className="flex items-center space-x-2">
-                  <div>
-                    <IconBath className="text-primary" />
+                {data.bathRooms && (
+                  <div className="flex items-center space-x-2">
+                    <div>
+                      <IconBath className="text-primary" />
+                    </div>
+                    <div>
+                      <span className="font-bold text-primary">Bathrooms</span>
+                    </div>
+                    <div>
+                      <span className="font-bold text-primary">
+                        {data.bathRooms}
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-bold text-primary">Bathrooms</span>
-                  </div>
-                  <div>
-                    <span className="font-bold text-primary">
-                      {data.bathRooms}
-                    </span>
-                  </div>
-                </div>
+                )}
               </div>
 
               {/* Meta */}
               <div className="flex items-center space-x-2 mt-4">
                 {/* tags array */}
-                {[data?.sellType, data?.priceType, data?.type].map((tag, index) => (
-                  <Badge
-                    key={index}
-                    variant="filled"
-                    className="bg-primary text-white"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
+                {[data?.sellType, data?.priceType, data?.type]
+                  .filter((tag) => tag)
+                  .map((tag, index) => (
+                    <Badge
+                      key={index}
+                      variant="filled"
+                      className="bg-primary text-white"
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
               </div>
             </div>
           </div>

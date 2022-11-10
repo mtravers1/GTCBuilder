@@ -174,7 +174,10 @@ export default function Index() {
             </Stepper.Step>
 
             {/* Consultant and Social Step */}
-            <Stepper.Step label="Social Step " description="Social links Step ">
+            <Stepper.Step
+              label="Consultant Step "
+              description="Consultant/Agent details"
+            >
               <div className="bg-white p-2 rounded-default">
                 <div className="font-bold text-lg">Consultant section</div>
                 <ConsultantStep

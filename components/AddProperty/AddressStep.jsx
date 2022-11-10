@@ -7,7 +7,7 @@ export default function AddressStep({ body, setBody }) {
       <div className="grid grid-cols-2 gap-2">
         {/* Street */}
         <div>
-          <Input.Wrapper label="Street" required>
+          <Input.Wrapper label="Street">
             <Input
               placeholder="Menlo road"
               value={body?.address?.street}
@@ -22,7 +22,7 @@ export default function AddressStep({ body, setBody }) {
         </div>
         {/* City */}
         <div>
-          <Input.Wrapper label="City" required>
+          <Input.Wrapper label="City">
             <Input
               placeholder="New york"
               value={body?.address?.city}
@@ -37,7 +37,7 @@ export default function AddressStep({ body, setBody }) {
         </div>
         {/* Area */}
         <div>
-          <Input.Wrapper label="Area" required>
+          <Input.Wrapper label="Area">
             <Input
               placeholder="State"
               value={body?.address?.area}
@@ -52,7 +52,7 @@ export default function AddressStep({ body, setBody }) {
         </div>
         {/* Provinece */}
         <div>
-          <Input.Wrapper label="State" required>
+          <Input.Wrapper label="State">
             <Input
               placeholder="Western"
               value={body?.address?.province}

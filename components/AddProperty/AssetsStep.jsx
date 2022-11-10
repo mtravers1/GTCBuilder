@@ -25,7 +25,7 @@ export default function AssetsStep({ body, setBody, setFiles, files }) {
       <div className="flex flex-col space-y-4">
         {/* Video link */}
         <div>
-          <Input.Wrapper label="Video link" required>
+          <Input.Wrapper label="Video link">
             <Input
               placeholder="www.youtube.com/"
               value={body?.videoLink}
@@ -61,7 +61,7 @@ export default function AssetsStep({ body, setBody, setFiles, files }) {
 
         {/* Google map location link */}
         <div>
-          <Input.Wrapper label="Google map location link" required>
+          <Input.Wrapper label="Google map location link">
             <Input
               placeholder="maps.google.com/"
               value={body?.googleMapLocation}
@@ -77,7 +77,7 @@ export default function AssetsStep({ body, setBody, setFiles, files }) {
 
         {/* Matterport link */}
         <div>
-          <Input.Wrapper label="Virtual tour (matterport link)" required>
+          <Input.Wrapper label="Virtual tour (matterport link)">
             <Input
               placeholder="maps.matterport.com/"
               value={body?.virtualTourLink}

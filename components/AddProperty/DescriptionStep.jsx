@@ -20,7 +20,7 @@ export default function DescriptionStep({ body, setBody }) {
         </div>
         {/* Links */}
         <div>
-          <Input.Wrapper label="Document links 01" required>
+          <Input.Wrapper label="Document links 01">
             <Input
               placeholder="https://"
               value={body?.documentLinks?.link1}
@@ -38,7 +38,7 @@ export default function DescriptionStep({ body, setBody }) {
         </div>
         {/* Links */}
         <div>
-          <Input.Wrapper label="Document links 02" required>
+          <Input.Wrapper label="Document links 02">
             <Input
               placeholder="https://"
               value={body?.documentLinks?.link2}
@@ -56,7 +56,7 @@ export default function DescriptionStep({ body, setBody }) {
         </div>
         {/* Links */}
         <div>
-          <Input.Wrapper label="Document links 03" required>
+          <Input.Wrapper label="Document links 03">
             <Input
               placeholder="https://"
               value={body?.documentLinks?.link3}
