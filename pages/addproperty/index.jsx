@@ -33,6 +33,7 @@ export default function Index() {
     videoCoverImageLink: "link",
     agent: {},
     isTopProperty: false,
+    isFeatured: false,
   });
   const router = useRouter();
   console.log(body);
@@ -55,24 +56,30 @@ export default function Index() {
       images_.push(ff);
     }
 
-    let formData = new FormData();
-    formData.append("file", agentImage[0]);
-    formData.append("upload_preset", "gtc-builder");
-    const { data: agentImageResponse } = await axios.post(
-      `https://api.cloudinary.com/v1_1/dfm1c1iri/image/upload`,
-      formData
-    );
-    console.log(agentImageResponse);
+    if (agentImage[0]) {
+      let formData = new FormData();
+      formData.append("file", agentImage[0]);
+      formData.append("upload_preset", "gtc-builder");
+      const { data: agentImageResponse } = await axios.post(
+        `https://api.cloudinary.com/v1_1/dfm1c1iri/image/upload`,
+        formData
+      );
+      console.log(agentImageResponse);
 
-    body.agent.image = agentImageResponse.secure_url;
-    formData = new FormData();
-    formData.append("file", videoCoverImage[0]);
-    formData.append("upload_preset", "gtc-builder");
-    const { data: coverImageResponse } = await axios.post(
-      `https://api.cloudinary.com/v1_1/dfm1c1iri/image/upload`,
-      formData
-    );
-    body.coverImageURL = coverImageResponse?.secure_url;
+      body.agent.image = agentImageResponse.secure_url;
+    }
+
+    if (videoCoverImage[0]) {
+      formData = new FormData();
+      formData.append("file", videoCoverImage[0]);
+      formData.append("upload_preset", "gtc-builder");
+      const { data: coverImageResponse } = await axios.post(
+        `https://api.cloudinary.com/v1_1/dfm1c1iri/image/upload`,
+        formData
+      );
+      body.coverImageURL = coverImageResponse?.secure_url;
+    }
+
     const data = await postProtectedData(properties.addProperty, {
       ...body,
       imagesURLs: images_.map((image) => image.secure_url),
