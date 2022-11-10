@@ -1,5 +1,7 @@
 import { LoginContent } from "../../../modules/Authentication/LoginContent";
 import { RegisterContent } from "../../../modules/Authentication/RegisterContent";
+import { AdminLoginContent } from "../../../modules/Authentication/AdminLoginContent";
+
 
 export default function Login() {
   return (

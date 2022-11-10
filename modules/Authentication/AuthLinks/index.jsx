@@ -4,6 +4,7 @@ export const AuthLinks = ({ active }) => {
   const links = [
     { page: "Login", link: "/auth/login" },
     { page: "Register", link: "/auth/register" },
+    { page: "Admin Login", link: "/auth/admin-login"}
   ];
   return (
     <div className={styles.wrapper}>
