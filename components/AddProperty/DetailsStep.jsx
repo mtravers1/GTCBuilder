@@ -1,4 +1,4 @@
-import { Input, Select } from "@mantine/core";
+import { Input, Select, Checkbox } from "@mantine/core";
 import { useState } from "react";
 
 // details section of the add proprty stepper
@@ -85,6 +85,30 @@ export default function DetailsStep({ body, setBody }) {
             ]}
             value={body.priceType}
             onChange={setPriceType}
+          />
+        </div>
+        <div>
+          <Checkbox
+            color={"teal"}
+            label={"Make top property"}
+            checked={body?.isTopProperty}
+            onChange={(e) =>
+              setBody({
+                ...body,
+                isTopProperty: e.target.checked,
+              })
+            }
+          />
+          <Checkbox
+            color={"teal"}
+            label={"Make featured Property"}
+            checked={body?.isFeatured}
+            onChange={(e) =>
+              setBody({
+                ...body,
+                isFeatured: e.target.checked,
+              })
+            }
           />
         </div>
       </div>

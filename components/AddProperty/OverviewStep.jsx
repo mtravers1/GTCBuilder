@@ -71,20 +71,6 @@ export default function OverviewStep({ body, setBody }) {
             />
           </Input.Wrapper>
         </div>
-        <div>
-          <Checkbox
-            color={"teal"}
-            label="Is top property?"
-            checked={body?.isTopProperty}
-            onChange={(e) =>
-              setBody({
-                ...body,
-
-                isTopProperty: e.currentTarget?.checked,
-              })
-            }
-          />
-        </div>
       </div>
     </>
   );
