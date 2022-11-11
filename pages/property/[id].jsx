@@ -19,6 +19,9 @@ import Plans from "../../components/PropertyView/Plans";
 import { PropertiesData } from "../../dummy_data/propertiesData";
 import { getData } from "../../services";
 import { commafy } from "../../utils";
+import PrimaryButton from "../../components/PrimaryButton";
+import NormalButton from "../../components/NormalButton";
+import { routes } from "../../constants/Routes";
 
 // individual property page
 // [id] - mean the dynamic route pass the indiividual property id or slug param with Next.js Link component
@@ -75,10 +78,20 @@ export default function Index({ property }) {
             </h1>
 
             {/* right */}
-            {/* Price */}
-            <h1 className="bg-primary font-bold text-white px-4 py-2 rounded-default shadow-sm pc:text-2xl tablet:text-xl text-base text-center">
-              from ${commafy(property?.price)}
-            </h1>
+            {/* Price and edit for admin */}
+            <div>
+              <h2 className="bg-primary font-bold text-white px-4 py-2 rounded-default shadow-sm pc:text-2xl tablet:text-xl text-base text-center">
+                from ${commafy(property?.price)}
+              </h2>
+
+              <PrimaryButton
+                type="button"
+                className="mt-3 w-full"
+                link={`${routes.editProperty}?id=${property?.id}`}
+              >
+                <p>Edit property</p>
+              </PrimaryButton>
+            </div>
           </div>
           {/* Location */}
           <div className="text-black/80 italic pc:text-base text-sm mb-2">

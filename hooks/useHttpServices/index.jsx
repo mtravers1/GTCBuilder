@@ -3,7 +3,6 @@ import axios from "axios";
 
 import { useCookies } from "react-cookie";
 
-
 export const useHttpServices = () => {
   const baseURL = process.env.AUTH_BASEURL;
   const [isLoading, setIsLoading] = useState(false);
@@ -29,6 +28,21 @@ export const useHttpServices = () => {
       const { token } = cookies;
 
       const { data } = await axios.post(`${baseURL}${path}`, body, {
+        token,
+      });
+      return data;
+    } catch (error) {
+      return { error: error?.response?.data };
+    } finally {
+      setIsLoading(false);
+    }
+  };
+  const putProtectedData = async (path, body) => {
+    try {
+      setIsLoading(true);
+      const { token } = cookies;
+
+      const { data } = await axios.put(`${baseURL}${path}`, body, {
         token,
       });
       return data;
@@ -72,6 +86,7 @@ export const useHttpServices = () => {
     postData,
     postProtectedData,
     getProtectedData,
+    putProtectedData,
     payload,
     getData,
   };

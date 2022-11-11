@@ -12,6 +12,7 @@ export const routes = {
   // Auth pages route
   login: "/auth/login", // view all properties view
   register: "/auth/register", // view all properties view
+  editProperty: "/property/edit", // edit a property
 
   // Profile pages route
   profile: "/profile/", // view user profile [id] means dynamic route , append id at the end

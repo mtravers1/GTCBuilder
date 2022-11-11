@@ -15,4 +15,5 @@ export const properties = {
   homePageDetails: `${siteDetailsBase}/home-titles`,
   appLogo: `${siteDetailsBase}/logo`,
   contacts: `${siteDetailsBase}/contacts`,
+  updateProperty: `${propertiesBase}`,
 };
